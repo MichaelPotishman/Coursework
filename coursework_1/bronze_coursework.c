@@ -61,14 +61,28 @@ int main() {
     int line = 1;
 
     FITNESS_DATA arr[200];
-
-    int buffer_size = 100;
+    int buffer_size = 200;
     char line_buffer[buffer_size];
+
+    //TEMP STORAGE
+    char date[100];
+    char time[100];
+    char steps[100];
+
     while (fgets(line_buffer, buffer_size, file) != NULL){
-        tokeniseRecord(line_buffer, " ", date, time, steps);
+        tokeniseRecord(line_buffer,",",date,time,steps);
+         
+        strcpy(arr[line].date, date);
+        strcpy(arr[line].time, time);
+        arr[line].steps = atoi(steps);
+        
+        
         if (line < 4){
-            printf("%s", line_buffer); 
+            printf("%s/%s/%d\n",arr[line].date, arr[line].time, arr[line].steps); 
         }
+        
+       
+
         line = line + 1;
         
     }

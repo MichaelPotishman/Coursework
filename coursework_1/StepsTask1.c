@@ -57,7 +57,6 @@ FILE *open_file(char filename[], char mode[]){
 int main() {
     char filename [] = "FitnessData_2023.csv";
     FILE *file = open_file(filename, "r");
-    char character = fgetc(file);
     int line = 1;
 
     FITNESS_DATA arr[200];
@@ -76,13 +75,10 @@ int main() {
         strcpy(arr[line].time, time);
         arr[line].steps = atoi(steps);
         
-        
         if (line < 4){
             printf("%s/%s/%d\n",arr[line].date, arr[line].time, arr[line].steps); 
         }
         
-       
-
         line = line + 1;
         
     }

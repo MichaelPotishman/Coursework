@@ -74,16 +74,16 @@ int main() {
         strcpy(arr[line].date, date);
         strcpy(arr[line].time, time);
         arr[line].steps = atoi(steps);
-        
-        if (line < 4){
-            printf("%s/%s/%d\n",arr[line].date, arr[line].time, arr[line].steps); 
-        }
-        
+    
         line = line + 1;
         
     }
-    printf("\n");
-    printf("Number of records in file:  %d ", line);
+    printf("Number of records in file: %d", line);
+
+    for (int count = 0; count < 4; count++){
+        printf("%s/%s/%d\n",arr[count].date, arr[count].time, arr[count].steps); 
+
+    }
 
     fclose(file);
     
